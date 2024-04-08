@@ -25,6 +25,7 @@ function MovieTrailer({movieId}) {
                 src={videoUrl}
                 allowFullScreen
                 >
+                    
 
                 </iframe>
             )}
