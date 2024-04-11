@@ -12,15 +12,10 @@ function MovieCard({movie}){
                     <span className="ml-1">{movie.vote_average}</span>
                     <p className="card-text">{movie.overview.substring(0,125).concat('....')}</p>
                     <div className="d-flex justify-content-between p-0">
-                        <span className="far fa-calendar" aria-hidden="true">{movie.release_date}</span>
+                        <span className="far fa-calendar" aria-hidden="true"> {movie.release_date}</span>
 
-                        <span>{movie.id && (
-                            <MovieTrailer movieId={movie.id} />
-                        )}
-                        </span>
+                        <MovieTrailer movieId={movie.id} />
                         
-                        {/* {console.log(movie)}  */}
-
                     </div>            
                 </div>
             </div>

@@ -7,6 +7,7 @@ const moviesApi = createApi({
   }),
   endpoints(builder) {
     return {
+
       fetchPopularMovies: builder.query({
         query: () => {
           return {
@@ -60,18 +61,44 @@ const moviesApi = createApi({
       }),
 
       fetchMovieTrailer: builder.query ({
-        query: (movie) => {
+        query: (movieId) => {
           return {
-            url: `movie/${movie.id}/videos`,
+            url: `movie/${movieId}/videos`, // movie.id?
             params: {
               // query: movieId,
               api_key: '81c50c197b83129dd4fc387ca6c8c323'
             },
             method: 'GET',
-            
           };
         },
       }),
+
+      // TV-Series
+      fetchPopularTvSeries: builder.query({
+        query: () => {
+          return {
+            url: 'discover/tv',
+            params: {
+              sort_by: 'popularity.desc',
+              api_key: '81c50c197b83129dd4fc387ca6c8c323'
+            },
+            method: 'GET',
+          };
+        },
+      }),
+
+      fetchHighestRatedTvSeries: builder.query({
+        query: () => {
+          return {
+            url: 'discover/tv',
+            params: {
+              sort_by: 'vote_average.desc',
+              api_key: '81c50c197b83129dd4fc387ca6c8c323'
+            },
+            method: 'GET',
+          };
+        },
+      }), 
 
     };
   },
@@ -82,7 +109,9 @@ export const {
   useFetchHighestRatedMoviesQuery, 
   useFetchSearchMovieQuery, 
   useFetchUpcomingMoviesQuery,
-  useFetchMovieTrailerQuery
+  useFetchMovieTrailerQuery,
+  useFetchPopularTvSeriesQuery,
+  useFetchHighestRatedTvSeriesQuery
 } 
 = moviesApi;
 

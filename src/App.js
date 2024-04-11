@@ -6,11 +6,18 @@ import Home from './components/home';
 import SearchMovie from './components/searchMovie';
 import SearchedMoviesList from './components/searchedMoviesList';
 import UpcomingMovies from './components/upcomingMoviesList';
+import './App.css';
+import PopularTvSeriesList from './components/popularTvSeriesList';
+import HighestRatedTvSeriesList from './components/highestRatedTvSeriesList';
 
 function App() {
   return (
     <div>
-      <div className="jumbotron pb-3 pt-3">
+      <div className="jumbotron pb-3 pt-4">
+
+      <span className='h1'>Movie Database <img className="rounded movie_img m-3" src={MovieImg} width="75" height="75" alt='Film roll'/></span>
+      <span className="d-flex justify-content-between p-0">This small app demonstrates React, Redux-Toolkit, RTK Query and React-Router <SearchMovie/> </span>
+
         <div className="navbar navbar-expand-lg">
           <nav className="nav navbar-nav">    
 
@@ -18,12 +25,12 @@ function App() {
             <Link to='/popular' className="nav-item nav-link">Popular</Link>
             <Link to='/highest-rated' className="nav-item nav-link">Highest Rated</Link>
             <Link to='/upcoming' className='nav-item nav-link'>Upcoming Movies</Link>
+            <Link to='/popularTv' className='nav-item nav-link'>Popular Tv Series</Link>
+            <Link to='highest-rated-tv' className='nav-item nav-link'>Highest Rated Tv Series</Link>
 
           </nav>
         </div>
 
-        <span className='h1'>React Moviefinder <img className="rounded movie_img m-3" src={MovieImg} width="75" height="75" alt='Film roll'/></span>
-        <span className="d-flex justify-content-between p-0">This small App demonstrates React, Redux-Toolkit, RTK Query and React-Router <SearchMovie /> </span>
       </div>
 
         <Routes>
@@ -32,6 +39,8 @@ function App() {
             <Route path='/highest-rated' element={<HighestRatedMovieList/>} />
             <Route path='/searchedMovie' element={<SearchedMoviesList/>} />
             <Route path='/upcoming' element={<UpcomingMovies/>} />
+            <Route path='/popularTv' element={<PopularTvSeriesList/>} />
+            <Route path='highest-rated-tv' element={<HighestRatedTvSeriesList/>} />
         </Routes>
 
     </div>

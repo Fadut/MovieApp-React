@@ -1,9 +1,9 @@
 import { useFetchPopularMoviesQuery } from "../store";
-import MovieCard from "./movieCard"
+import MovieCard from "./movieCard";
 
 function PopularMoviesList() {                                   
-  const {data, error, isFetching } = useFetchPopularMoviesQuery();    
-                                                                                            
+  const {data, error, isFetching } = useFetchPopularMoviesQuery();
+                                                                    
 let content;
   if (isFetching) {
     content = <div>Loading;</div>
@@ -14,6 +14,7 @@ let content;
       return <MovieCard key={movie.id} movie={movie}></MovieCard>
     });
   }
+
     return (
     <div className="row row-cols-3 row-cols-md-2 m-4">
       {content}

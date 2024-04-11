@@ -21,7 +21,10 @@ export {
   useFetchHighestRatedMoviesQuery, 
   useFetchSearchMovieQuery, 
   useFetchUpcomingMoviesQuery,
-  useFetchMovieTrailerQuery
+  useFetchMovieTrailerQuery,
+  useFetchPopularTvSeriesQuery,
+  useFetchHighestRatedTvSeriesQuery
+
 } from './apis/moviesApi';
 
 export { changeSearchTerm };
