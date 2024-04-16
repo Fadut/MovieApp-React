@@ -9,9 +9,16 @@ import UpcomingMovies from './components/upcomingMoviesList';
 import './App.css';
 import PopularTvSeriesList from './components/popularTvSeriesList';
 import HighestRatedTvSeriesList from './components/highestRatedTvSeriesList';
+import FavoritesPage from './components/favoritesPage';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 function App() {
+
+  // Create a new QueryClient instance for favorites part
+  const queryClient = new QueryClient();
+
   return (
+    <QueryClientProvider client={queryClient}>
     <div>
       <div className="jumbotron pb-3 pt-4">
 
@@ -26,7 +33,8 @@ function App() {
             <Link to='/highest-rated' className="nav-item nav-link">Highest Rated</Link>
             <Link to='/upcoming' className='nav-item nav-link'>Upcoming Movies</Link>
             <Link to='/popularTv' className='nav-item nav-link'>Popular Tv Series</Link>
-            <Link to='highest-rated-tv' className='nav-item nav-link'>Highest Rated Tv Series</Link>
+            <Link to='/highest-rated-tv' className='nav-item nav-link'>Highest Rated Tv Series</Link>
+            <Link to='/favorites' className='nav-item nav-link'>Favorites</Link>
 
           </nav>
         </div>
@@ -40,10 +48,12 @@ function App() {
             <Route path='/searchedMovie' element={<SearchedMoviesList/>} />
             <Route path='/upcoming' element={<UpcomingMovies/>} />
             <Route path='/popularTv' element={<PopularTvSeriesList/>} />
-            <Route path='highest-rated-tv' element={<HighestRatedTvSeriesList/>} />
+            <Route path='/highest-rated-tv' element={<HighestRatedTvSeriesList/>} />
+            <Route path='/favorites' element={<FavoritesPage/>} />
         </Routes>
 
     </div>
+    </QueryClientProvider>
   );    
 }
 
